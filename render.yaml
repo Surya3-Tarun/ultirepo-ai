@@ -21,7 +21,6 @@ services:
     rootDir: ultirepo-ai/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
-    plan: free
     envVars:
       - key: VITE_API_BASE_URL
         value: https://ultirepo-backend.onrender.com

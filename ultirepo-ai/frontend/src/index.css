@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #0c1613 0%, #04080a 60%);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Glassmorphic holographic panel used across every page */
+.hologram-panel {
+  background: linear-gradient(135deg, rgba(15, 255, 154, 0.06), rgba(37, 244, 238, 0.03));
+  border: 1px solid rgba(15, 255, 154, 0.25);
+  backdrop-filter: blur(14px);
+  border-radius: 0.75rem;
+  position: relative;
+}
+
+.hologram-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(15, 255, 154, 0.5), transparent 40%, rgba(37, 244, 238, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.hex-bg {
+  background-image: linear-gradient(rgba(15, 255, 154, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 255, 154, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+/* Custom cursor glow trail */
+.cursor-glow {
+  position: fixed;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle, rgba(15, 255, 154, 0.55), transparent 70%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+}
+
+::selection {
+  background: rgba(15, 255, 154, 0.35);
+  color: #04080a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f0c;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 255, 154, 0.35);
+  border-radius: 6px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #0fff9a, #25f4ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

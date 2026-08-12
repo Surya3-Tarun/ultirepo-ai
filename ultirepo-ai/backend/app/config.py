@@ -31,7 +31,11 @@ class Settings(BaseSettings):
     history_db_path: str = "storage/history.sqlite3"
 
     # --- Server ---
-    cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
+    cors_origins: list[str] = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://ultirepo-frontend.onrender.com",
+    ]
     max_repo_size_mb: int = 500
 
     # --- File filtering ---

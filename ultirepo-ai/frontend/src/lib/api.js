@@ -33,11 +33,7 @@ export const api = {
 
   processStatusSocket: (repoId) => {
     const proto = window.location.protocol === "https:" ? "wss" : "ws";
-    const backendHost = import.meta.env.VITE_API_WS_HOST;
-    if (!backendHost) {
-      throw new Error("VITE_API_WS_HOST is not configured.");
-    }
-    return new WebSocket(`${proto}://${backendHost}/ws/process-status/${repoId}`);
+    return new WebSocket(`${proto}://${window.location.host}/ws/process-status/${repoId}`);
   },
 
   /**
